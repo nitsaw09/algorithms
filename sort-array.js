@@ -14,6 +14,7 @@ const nullEmptyString = (item) => {
     return item;
 } 
 
+// using facade design pattern for sorting data
 const sortData = (itemList, field, order) => {
     const sortItem = itemList.map(item => item[field]).sort();
 
