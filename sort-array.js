@@ -14,8 +14,8 @@ const nullEmptyString = (item) => {
     return item;
 } 
 
-const sortData = (itemList, order) => {
-    const sortItem = itemList.map(item => item.name).sort();
+const sortData = (itemList, field, order) => {
+    const sortItem = itemList.map(item => item[field]).sort();
 
     // sort array in descending order
     if(order === "DESC") {
@@ -23,7 +23,7 @@ const sortData = (itemList, order) => {
     }
 
     return sortItem.map(data => {
-        const findItem =itemList.find(item => item.name === data);
+        const findItem =itemList.find(item => item[field] === data);
         if(findItem) {
             const item = nullEmptyString(findItem);
             return item;
@@ -31,6 +31,5 @@ const sortData = (itemList, order) => {
     });
 }
 
-console.log(sortData(items, "ASC"));
-console.log(sortData(items, "DESC"));
-
+console.log(sortData(items, "name", "ASC"));
+console.log(sortData(items, "name", "DESC"));
