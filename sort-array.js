@@ -1,4 +1,4 @@
-const items = [
+const users = [
     {id: 1, name: "Antony"},
     {id: 2, name: "Fred"},
     {id: 3, name: null},
@@ -31,5 +31,5 @@ const sortData = (itemList, field, order) => {
     });
 }
 
-console.log(sortData(items, "name", "ASC"));
-console.log(sortData(items, "name", "DESC"));
+console.log(sortData(users, "name", "ASC"));
+console.log(sortData(users, "name", "DESC"));
