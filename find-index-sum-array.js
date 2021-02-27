@@ -14,4 +14,5 @@ function sumArrayHashTable(arr, sum) {
   return result;
 }
 
-console.log(sumArrayHashTable([5, 2, 6, 1, 3, 9, 0, 7], 9));
+console.log(sumArrayHashTable([4, 2, 6, 1, 3, 9, 0, 7], 9));
+// output: [[4, 2], [6, 5], [7, 1]]
