@@ -9,7 +9,7 @@ const users = [
 const sortData = (itemList, field, order) => {
     const sortItem = itemList.sort((a, b) => { 
         const val1 = a[field].toLowerCase();
-        const val2 = b[field].toLowerCase()
+        const val2 = b[field].toLowerCase();
        	if(val1 < val2) {
          return order === "ASC" ? -1 : 1;   
        	}
