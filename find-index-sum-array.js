@@ -8,7 +8,7 @@ function sumArrayHashTable(arr, sum) {
 
   for (let i = 0; i < arr.length; i++) {
     const s = sum - arr[i]; 
-    if (hashTable[s] !== undefined) {
+    if (!hashTable[s]) {
       result.push([i, hashTable[s]]);
     } else {
       hashTable[arr[i]] = i;
