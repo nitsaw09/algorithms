@@ -22,8 +22,8 @@ function computeTokenSwaps(n, ratesList, q, queriesList) {
           } else if (rates[t1] && rates[t1][t2]) {
             rates[token1][t1] = rates[token1][t2] * rates[t1][t2]
           }
+          continue;
         }
-        continue;
       }
     }
   }
