@@ -16,10 +16,12 @@ function computeTokenSwaps(n, ratesList, q, queriesList) {
   for (const t1 in allTokens) {
     if (rates[token1] && !rates[token1][t1]) {
       for (const t2 in allTokens) {
-        if (rates[token1] && rates[token1][t2] && rates[t2] && rates[t2][t1]) {
-          rates[token1][t1] = rates[token1][t2] * rates[t2][t1]
-        } else if (rates[token1] && rates[token1][t2] && rates[t1] && rates[t1][t2]) {
-          rates[token1][t1] = rates[token1][t2] * rates[t1][t2]
+        if (rates[token1] && rates[token1][t2]) {
+          if (rates[t2] && rates[t2][t1]) {
+            rates[token1][t1] = rates[token1][t2] * rates[t2][t1]
+          } else if (rates[t1] && rates[t1][t2]) {
+            rates[token1][t1] = rates[token1][t2] * rates[t1][t2]
+          }
         }
       }
     }
