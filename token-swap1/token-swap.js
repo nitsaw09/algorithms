@@ -16,12 +16,10 @@ function computeTokenSwaps(n, ratesList, q, queriesList) {
   for (const t1 in allTokens) {
     if (rates[token1] && !rates[token1][t1]) {
       for (const t2 in allTokens) {
-        if (rates[token1] && rates[token1][t2]) {
-          if (rates[t2] && rates[t2][t1]) {
-            rates[token1][t1] = rates[token1][t2] * rates[t2][t1]
-          } else if (rates[t1] && rates[t1][t2]) {
-            rates[token1][t1] = rates[token1][t2] * rates[t1][t2]
-          }
+        if (rates[token1] && rates[token1][t2] && rates[t2] && rates[t2][t1]) {
+          rates[token1][t1] = rates[token1][t2] * rates[t2][t1]
+        } else if (rates[token1] && rates[token1][t2] && rates[t1] && rates[t1][t2]) {
+          rates[token1][t1] = rates[token1][t2] * rates[t1][t2]
         }
       }
     }
@@ -52,7 +50,7 @@ function computeTokenSwaps(n, ratesList, q, queriesList) {
 
 // Example usage
 const n = 3;
-const ratesList = ["TokenA, TokenB, 1.2", "TokenB TokenC, 0.003", "TokenA, TokenD, 0.0000005"];
+const ratesList = ["TokenA, TokenB, 1.2", "TokenB, TokenC, 0.003", "TokenA, TokenD, 0.0000005"];
 const q = 4;
 const queriesList = ["TokenC, TokenD, 10000", "TokenA, TokenC, 10000", "TokenB, TokenA, 10000", "TokenD, TokenB, 10000"];
 computeTokenSwaps(n, ratesList, q, queriesList);
