@@ -1,5 +1,7 @@
 /*
-  Return the Node which greater left or right and if there is no node return empty
+  Return the Node which greater left or right and if there is no node return empty and for -1 there is no node
+  Input: arr [1, 6, 2, 9, -1, 10]
+  Output: Left
                    1
                   / \
                  6   2
